@@ -1,0 +1,20 @@
+:root {
+    /* color palette 223*/
+    --color-light-orange: #FBD8B0;
+    --color-tea-green: #DCF2C4;
+    --color-middle-blue-green: #74DFD5;
+    --color-indigo-dye: #134077;
+    --color-ruber: #DF4275;
+}
+
+body {
+    width: 1024px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 300px;
+    background-color: var(--color-tea-green);
+}
