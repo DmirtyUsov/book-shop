@@ -50,6 +50,10 @@ main {
 
 }
 
+.book-title {
+    color: var(--color-ruber);
+}
+
 .cart {
     width: 35%;
     background-color: var(--color-middle-blue-green);

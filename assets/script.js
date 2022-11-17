@@ -31,11 +31,11 @@ setTimeout(() => { // wait for data from fetch
 
 
     console.log(books, Array.isArray(books), books.length, books[0]);
-    for (item of books) {
+    for (const [idx,item] of books.entries()) {
         let book = document.createElement('div');
         book.classList.add('book')
         item.isbn10 = item.imageLink.split('/').at(-1).split('.')[0];
-        book.id =  item.isbn10;
+        book.id =  idx;
 
         let title = document.createElement('h2');
         title.classList.add('book-title')
@@ -49,7 +49,7 @@ setTimeout(() => { // wait for data from fetch
 
         let price = document.createElement('p');
         price.classList.add('book-price');
-        price.textContent = item.price;
+        price.textContent = `Price: \$${item.price}`;
         book.append(price);
 
         let cover = document.createElement('img');
@@ -57,6 +57,23 @@ setTimeout(() => { // wait for data from fetch
         cover.src = item.imageLink;
         cover.alt = `Cover for ${item.title}`;
         book.append(cover);
+
+        let popup = document.createElement('span');
+        popup.classList.add('book-more');
+        popup.id = `popup-${idx}`;
+        popup.textContent = item.description;
+        book.append(popup);
+
+        let more = document.createElement('button');
+        more.classList.add('book-more');
+        more.textContent = 'Show more';
+        book.append(more);
+
+        let add = document.createElement('button');
+        add.classList.add('book-add');
+        add.textContent = 'Add to Order';
+        book.append(add);
+
 
         divMy.append(book)
     }
