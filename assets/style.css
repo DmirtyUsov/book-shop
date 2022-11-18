@@ -47,15 +47,60 @@ main {
 }
 
 .book {
-
+    position: relative;
 }
 
 .book-title {
     color: var(--color-ruber);
 }
 
+.popup .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+}
+
+.popup .content {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    padding: 20px;
+    background: var(--color-light-orange);
+    width: 70%;
+    text-align: center;
+    box-sizing: border-box;
+    display:none;
+}
+
+.popup .close-button{
+    cursor:pointer;
+    position:absolute;
+    right: 20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background: #222;
+    color: #fff;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+}
+
+.popup.active .overlay{
+    display: block;
+}
+
+.popup.active .content{
+    display: block;
+}
+
 .cart {
     width: 35%;
+    margin-left: 5px;
     background-color: var(--color-middle-blue-green);
     border: 1px solid gray;
     border-radius: 10px;
@@ -68,3 +113,4 @@ footer {
     height: 150px;
     border-radius: 10px;
 }
+

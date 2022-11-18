@@ -7,7 +7,10 @@ fetch('../../assets/books.json') // path to the file with json data
         console.log(data);
         books = data;
     });
-
+const togglePopup = (idx) =>{
+    console.log('press', idx);
+    document.getElementById(`popup-${idx}`).classList.toggle("active"); 
+}
 
 document.documentElement.lang = 'en';
 
@@ -40,40 +43,59 @@ setTimeout(() => { // wait for data from fetch
         let title = document.createElement('h2');
         title.classList.add('book-title')
         title.textContent = item.title;
-        book.append(title);
 
         let author = document.createElement('h4');
         author.classList.add('book-author');
         author.textContent = item.author;
-        book.append(author);
 
         let price = document.createElement('p');
         price.classList.add('book-price');
         price.textContent = `Price: \$${item.price}`;
-        book.append(price);
 
         let cover = document.createElement('img');
         cover.classList.add('book-cover');
         cover.src = item.imageLink;
         cover.alt = `Cover for ${item.title}`;
-        book.append(cover);
 
-        let popup = document.createElement('span');
-        popup.classList.add('book-more');
+        let popup = document.createElement('div');
+        popup.classList.add('popup');
         popup.id = `popup-${idx}`;
-        popup.textContent = item.description;
-        book.append(popup);
+        let popupOverlay = document.createElement('div');
+        popupOverlay.classList.add('overlay');
+        let popupCloseButton = document.createElement('div');
+        popupCloseButton.classList.add('close-button');
+        popupCloseButton.addEventListener('click', function(){togglePopup(idx)});
+        popupCloseButton.textContent = 'X';
+        let popupContent = document.createElement('div');
+        popupContent.append(popupCloseButton);
+        popupContent.classList.add('content');
+        let popupContentTitle = document.createElement('h2')
+        popupContentTitle.textContent = item.title
+        popupContent.append(popupContentTitle)
+        let popupContentText = document.createElement('p');
+        popupContentText.textContent = item.description;
+        popupContent.append(popupContentText)
+
+        popup.append(popupOverlay);
+        popup.append(popupContent)
+
 
         let more = document.createElement('button');
         more.classList.add('book-more');
         more.textContent = 'Show more';
-        book.append(more);
+        more.addEventListener('click', function(){togglePopup(idx)});
 
         let add = document.createElement('button');
         add.classList.add('book-add');
         add.textContent = 'Add to Order';
-        book.append(add);
 
+        book.append(popup);
+        book.append(title);
+        book.append(author);
+        book.append(price);
+        book.append(cover);
+        book.append(more);
+        book.append(add);
 
         divMy.append(book)
     }
