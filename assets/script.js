@@ -1,5 +1,6 @@
 let books = [];
 let draggedNow = null;
+let totalSum = 0;
 
 fetch('../../assets/books.json') // path to the file with json data
     .then(response => {
@@ -9,6 +10,7 @@ fetch('../../assets/books.json') // path to the file with json data
         console.log(data);
         books = data;
     });
+
 // functions for EventListners
 
 const togglePopup = (idx) => {
@@ -22,15 +24,34 @@ const addBookToOrder = (idx) => {
     let fragment = new DocumentFragment();
     let book = document.createElement('div');
     book.classList.add('book');
+    book.id = `${idx}-${Date.now()};`
     let title = document.createElement('h5');
     title.classList.add('book-title')
     title.textContent = books[idx].title;
-
+    let removeButton = document.createElement('div');
+    removeButton.classList.add('remove-button');
+    removeButton.addEventListener('click', function(){removeBookFromOrder(book.id)});
+    removeButton.textContent = 'X';
     book.append(title);
+    book.append(removeButton);
+
     fragment.append(book);
-    let order = document.getElementById('cart');
-    order.insertAdjacentElement('beforeend', book);
+    let order = document.getElementById('cart-bottom');
+    order.insertAdjacentElement('beforebegin', book);
     draggedNow = null;
+
+    // Update Total
+    totalSum += books[idx].price;
+    document.getElementById('total').innerText = totalSum;
+}
+
+const removeBookFromOrder = (elementId) =>{
+    // Update Total
+    totalSum -= books[elementId.split('-')[0]].price;
+    document.getElementById('total').innerText = totalSum;
+    
+    document.getElementById(elementId).remove();
+    console.log(elementId);
 }
 
 const startDrag = (idx) => {
@@ -54,10 +75,11 @@ setTimeout(() => { // wait for data from fetch
     fragment.append(headerMy);
 
     let mainMy = document.createElement('main');
+
+    // Create Catalog
     let divMy = document.createElement('div');
     divMy.classList.add('catalog');
     divMy.innerHTML = "<h2>Catalog<h2>";
-
 
     console.log(books, Array.isArray(books), books.length, books[0]);
     for (const [idx,item] of books.entries()) {
@@ -127,8 +149,10 @@ setTimeout(() => { // wait for data from fetch
 
         divMy.append(book)
     }
+    // Add Catalog
     mainMy.append(divMy);
 
+    // Create My Order
     divMy = document.createElement('div')
     divMy.classList.add('cart');
     divMy.id = 'cart';
@@ -139,8 +163,16 @@ setTimeout(() => { // wait for data from fetch
       });
     divMy.addEventListener("drop", function(){addBookToOrder(draggedNow)})
     divMy.innerHTML = "<h2>My Order<h2>";
+    let total = document.createElement('div');
+    total.id = 'cart-bottom';
+    total.innerHTML = '<p>Total: $<span id="total">0</span></p>'
+    let confirmOrder = document.createElement('button');
+    confirmOrder.classList.add('button-confirm');
+    confirmOrder.textContent = 'Confirm Order';
+    divMy.append(total);
+    divMy.append(confirmOrder);
     mainMy.append(divMy);
-
+    //add My Order
     fragment.append(mainMy);
 
     let footerMy = document.createElement('footer')
