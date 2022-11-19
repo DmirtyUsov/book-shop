@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../assets/style.css">
+        <title>Book Shop</title>
+     </head>
+    <body>
+        <header>
+            <h1>Book Shop</h1>
+        </header>
+        <main>
+            <div class="confirm">
+                <form action="">
+                    <div class="form-box error" data-errormsg="">
+                        <label for="input-name">Name</label>
+                        <input type="text" id="input-name" autofocus placeholder="Name" tabindex="1" required>
+                    </div>
+                    <div class="form-box" data-errormsg="">
+                        <label for="input-surname">Surname</label>
+                        <input type="text" id="input-surname" placeholder="Surname" tabindex="2" required>
+                    </div>
+                    <div class="form-box" data-errormsg="">
+                        <label for="input-date">Delivery Date</label>
+                        <input type="date" id="input-date" tabindex="3" required>
+                    </div>
+                    <div class="form-box" data-errormsg="">
+                        <label for="input-street">Street</label>
+                        <input type="text" id="input-street" placeholder="Street" tabindex="4" required>
+                    </div>
+                    <div class="form-box" data-errormsg="">
+                        <label for="input-house">House Number</label>
+                        <input type="number" id="input-house" placeholder="" tabindex="5" required>
+                    </div>
+                    <div class="form-box" data-errormsg="">
+                        <label for="input-flat">Flat Number</label>
+                        <input type="text" id="input-flat" placeholder="" tabindex="6" required>
+                    </div>
+                    <fieldset>
+                        <div class="form-box" data-errormsg="">
+                            <legend>Payment Method</legend>
+                            <label for="input-cash">Cash</label>
+                            <input type="radio" id="input-cash" name="payment" tabindex="7" value="cash" required>
+                            <label for="input-card">Card</label>
+                            <input type="radio" id="input-card" name="payment" tabindex="8" value="card">
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <div class="form-box" data-errormsg="">
+                            <legend>Choose two gifts</legend>
+                            <label for="input-pack">Pack as Gift</label>
+                            <input type="checkbox" id="input-pack" name="gifts" value="pack">
+                            <label for="input-postcard">Add Postcard</label>
+                            <input type="checkbox" id="input-postcard" name="gifts" value="postcard">
+                            <label for="input-discount">2% Discount Next Order</label>
+                            <input type="checkbox" id="input-discount" name="gifts" value="discount">
+                            <label for="input-branded">Branded Pen or Pencil</label>
+                            <input type="checkbox" id="input-branded" name="gifts" value="branded">
+                        </div>
+                    </fieldset>
+                    <input type="submit" >
+                </form>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+    </body>
+</html>

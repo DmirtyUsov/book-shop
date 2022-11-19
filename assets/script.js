@@ -43,13 +43,15 @@ const addBookToOrder = (idx) => {
     // Update Total
     totalSum += books[idx].price;
     document.getElementById('total').innerText = totalSum;
+    document.getElementById('button-confirm').disabled = ((totalSum === 0) ? true: false);
 }
 
 const removeBookFromOrder = (elementId) =>{
     // Update Total
     totalSum -= books[elementId.split('-')[0]].price;
     document.getElementById('total').innerText = totalSum;
-    
+    document.getElementById('button-confirm').disabled = ((totalSum === 0) ? true: false);
+
     document.getElementById(elementId).remove();
     console.log(elementId);
 }
@@ -86,7 +88,7 @@ setTimeout(() => { // wait for data from fetch
         let book = document.createElement('div');
         book.classList.add('book')
         item.isbn10 = item.imageLink.split('/').at(-1).split('.')[0];
-        book.id =  idx;
+        book.id = idx;
 
         let title = document.createElement('h2');
         title.classList.add('book-title')
@@ -167,8 +169,10 @@ setTimeout(() => { // wait for data from fetch
     total.id = 'cart-bottom';
     total.innerHTML = '<p>Total: $<span id="total">0</span></p>'
     let confirmOrder = document.createElement('button');
-    confirmOrder.classList.add('button-confirm');
+    confirmOrder.id = 'button-confirm';
     confirmOrder.textContent = 'Confirm Order';
+    confirmOrder.addEventListener('click', function(){window.open('../../pages/confirm','_self')});
+    confirmOrder.disabled = true;
     divMy.append(total);
     divMy.append(confirmOrder);
     mainMy.append(divMy);

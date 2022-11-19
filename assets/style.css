@@ -130,6 +130,16 @@ main {
     border-radius:50%;
 }
 
+.confirm {
+    width: 100%;
+    background-color: var(--color-middle-blue-green);
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.invalid {
+     border-color: red;
+}
+
 footer {
     width: 100%;
     background-color: var(--color-tea-green);
