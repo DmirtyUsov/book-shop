@@ -99,7 +99,11 @@ main {
 }
 
 .cart {
+    position: sticky;
+    align-self: flex-start;
+    top: 0;
     width: 35%;
+    height: auto;
     margin-left: 5px;
     background-color: var(--color-middle-blue-green);
     border: 1px solid gray;
@@ -107,6 +111,9 @@ main {
 
 }
 
+.cart .book-title {
+    color: var(--color-indigo-dye);
+}
 footer {
     width: 100%;
     background-color: var(--color-tea-green);
