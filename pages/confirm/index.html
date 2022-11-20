@@ -5,45 +5,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../../assets/style.css">
         <title>Book Shop</title>
-     </head>
+    </head>
     <body>
         <header>
             <h1>Book Shop</h1>
         </header>
         <main>
             <div class="confirm">
-                <form action="">
-                    <div class="form-box error" data-errormsg="">
-                        <label for="input-name">Name</label>
-                        <input type="text" id="input-name" autofocus placeholder="Name" tabindex="1" required>
+                <form id="form" action="">
+                    <div class="form-box" data-errormsg="">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" autofocus placeholder="Name" tabindex="1">
                     </div>
                     <div class="form-box" data-errormsg="">
-                        <label for="input-surname">Surname</label>
-                        <input type="text" id="input-surname" placeholder="Surname" tabindex="2" required>
+                        <label for="surname">Surname</label>
+                        <input type="text" id="surname" placeholder="Surname" tabindex="2" required>
                     </div>
                     <div class="form-box" data-errormsg="">
-                        <label for="input-date">Delivery Date</label>
-                        <input type="date" id="input-date" tabindex="3" required>
+                        <label for="date">Delivery Date</label>
+                        <input type="date" id="date" tabindex="3" required>
                     </div>
                     <div class="form-box" data-errormsg="">
-                        <label for="input-street">Street</label>
-                        <input type="text" id="input-street" placeholder="Street" tabindex="4" required>
+                        <label for="street">Street</label>
+                        <input type="text" id="street" placeholder="Street" tabindex="4" required>
                     </div>
                     <div class="form-box" data-errormsg="">
-                        <label for="input-house">House Number</label>
-                        <input type="number" id="input-house" placeholder="" tabindex="5" required>
+                        <label for="house">House Number</label>
+                        <input type="number" id="house" placeholder="" tabindex="5" min="0" required>
                     </div>
                     <div class="form-box" data-errormsg="">
-                        <label for="input-flat">Flat Number</label>
-                        <input type="text" id="input-flat" placeholder="" tabindex="6" required>
+                        <label for="flat">Flat Number</label>
+                        <input type="text" id="flat" placeholder="" tabindex="6" required>
                     </div>
                     <fieldset>
                         <div class="form-box" data-errormsg="">
                             <legend>Payment Method</legend>
-                            <label for="input-cash">Cash</label>
-                            <input type="radio" id="input-cash" name="payment" tabindex="7" value="cash" required>
-                            <label for="input-card">Card</label>
-                            <input type="radio" id="input-card" name="payment" tabindex="8" value="card">
+                            <label for="cash">Cash</label>
+                            <input type="radio" id="cash" name="payment" tabindex="7" value="cash" required>
+                            <label for="card">Card</label>
+                            <input type="radio" id="card" name="payment" tabindex="8" value="card">
                         </div>
                     </fieldset>
                     <fieldset>
@@ -59,12 +59,13 @@
                             <input type="checkbox" id="input-branded" name="gifts" value="branded">
                         </div>
                     </fieldset>
-                    <input type="submit" >
+                    <input type="submit" id="submit">
                 </form>
             </div>
         </main>
         <footer>
 
         </footer>
+        <script src="../../assets/validate.js"></script>
     </body>
 </html>

@@ -136,8 +136,16 @@ main {
     border: 1px solid gray;
     border-radius: 10px;
 }
-.invalid {
-     border-color: red;
+
+.error::after{
+    background-color: hsl(10, 60%, 50%);
+    color: papayawhip;
+    font-size: 1rem;
+    line-height: 1.8;
+    padding-left: 1rem;
+    position:relative;
+    left: 10px;
+    content: attr(data-errormsg);
 }
 
 footer {
