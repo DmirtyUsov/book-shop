@@ -25,14 +25,22 @@ const addBookToOrder = (idx) => {
     let book = document.createElement('div');
     book.classList.add('shelf');
     book.id = `${idx}-${Date.now()};`
-    let title = document.createElement('h5');
-    title.classList.add('book-title')
-    title.textContent = `${books[idx].title} by ${books[idx].author} for $${books[idx].price}`;
+    let title = document.createElement('div');
+    title.classList.add('book-title');
+    title.textContent = `${books[idx].title}`;
+    let author = document.createElement('div');
+    author.classList.add('book-author')
+    author.textContent = `by ${books[idx].author}`;
+    let price = document.createElement('div');
+    price.classList.add('book-price');
+    price.textContent = `for $${books[idx].price}`
     let removeButton = document.createElement('div');
     removeButton.classList.add('remove-button');
     removeButton.addEventListener('click', function(){removeBookFromOrder(book.id)});
     removeButton.textContent = 'X';
     book.append(title);
+    book.append(author);
+    book.append(price);
     book.append(removeButton);
 
     fragment.append(book);
@@ -94,11 +102,11 @@ setTimeout(() => { // wait for data from fetch
         title.classList.add('book-title')
         title.textContent = item.title;
 
-        let author = document.createElement('h4');
+        let author = document.createElement('div');
         author.classList.add('book-author');
         author.textContent = item.author;
 
-        let price = document.createElement('p');
+        let price = document.createElement('div');
         price.classList.add('book-price');
         price.textContent = `Price: \$${item.price}`;
 

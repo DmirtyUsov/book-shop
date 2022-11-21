@@ -53,12 +53,44 @@ main {
 
 .book {
     position: relative;
+    border-top: 1px solid var(--color-middle-blue-green);
+    display: flex;
+    flex-direction: column;
 }
 
-.book-title {
+.book .book-title {
     color: var(--color-ruber);
+    background-color: var(--color-tea-green);
+}
+.book .book-author {
+    display: block;
+    color: var(--color-indigo-dye);
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0 auto 0 auto;
+
+}
+.book .book-price {
+    color: var(--color-ruber);
+    margin: 0 auto 0 auto;
 }
 
+.book .book-cover {
+    width: 350px;
+    margin: 0 auto 0 auto;
+}
+.book .book-add {
+    display: block;
+    width: 350px;
+    font-size: 15px;
+    margin: 10px auto 5px auto;
+}
+.book .book-more {
+    display: block;
+    width: 100px;
+
+    margin: 10px auto 5px auto;
+}
 .popup .overlay {
     position: absolute;
     width: 100%;
@@ -120,12 +152,11 @@ main {
     border-radius: 10px;
 
 }
-.cart h2 {
-    border-bottom: 1px solid gray;
-}
+
 #cart-bottom {
     text-align: center;
-    color: var(--color-indigo-dye)
+    font-size: 20px;
+    color: var(--color-ruber)
 }
 .shelf {
     position: relative;
@@ -138,6 +169,13 @@ main {
 
 .shelf .book-title {
     color: var(--color-indigo-dye);
+    background-color: var(--color-tea-green);
+}
+.shelf .book-author {
+    color: var(--color-indigo-dye);
+}
+.shelf .book-price{
+    color: var(--color-ruber);
 }
 .shelf .remove-button{
     cursor:pointer;
