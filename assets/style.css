@@ -181,6 +181,7 @@ main {
 fieldset {
     border-color: var(--color-indigo-dye);
     margin-top: 10px;
+    width: fit-content;
 }
 .error::after{
     color: var(--color-ruber);
