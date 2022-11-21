@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../assets/style.css">
+        <title>Book Shop</title>
+    </head>
+    <body>
+        <header>
+            <h1>Book Shop</h1>
+        </header>
+        <main>
+            <div class="confirm">
+                <div class="popup" id="popup-confirmed">
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <h2>Your Order Confirmed!</h2>
+                        <p id="summary"></p>
+                    </div>
+                    <h2>Deliver Your Order To</h2>
+                    <form id="form" action="">
+                        <div class="form-box" data-errormsg="">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" autofocus placeholder="Name" tabindex="1">
+                        </div>
+                        <div class="form-box" data-errormsg="">
+                            <label for="surname">Surname</label>
+                            <input type="text" id="surname" placeholder="Surname" tabindex="2" required>
+                        </div>
+                        <div class="form-box" data-errormsg="">
+                            <label for="date">Delivery Date</label>
+                            <input type="date" id="date" tabindex="3" required>
+                        </div>
+                        <div class="form-box" data-errormsg="">
+                            <label for="street">Street</label>
+                            <input type="text" id="street" placeholder="Street" tabindex="4" required>
+                        </div>
+                        <div class="form-box" data-errormsg="">
+                            <label for="house">House Number</label>
+                            <input type="number" id="house" placeholder="" tabindex="5" min="0" required>
+                        </div>
+                        <div class="form-box" data-errormsg="">
+                            <label for="flat">Flat Number</label>
+                            <input type="text" id="flat" placeholder="" tabindex="6" required>
+                        </div>
+                        <fieldset id="payment">
+                            <div class="form-box" data-errormsg="">
+                                <legend>Choose Payment Method</legend>
+                                <label for="cash">Cash</label>
+                                <input type="radio" id="cash" name="payment" tabindex="7" value="cash" required>
+                                <label for="card">Card</label>
+                                <input type="radio" id="card" name="payment" tabindex="8" value="card">
+                            </div>
+                        </fieldset>
+                        <fieldset id="gifts">
+                            <div class="form-box" data-errormsg="">
+                                <legend>Take Up to 2 Gifts </legend>
+
+                                <input type="checkbox" id="pack" name="gifts" value="pack">
+                                <label for="pack">Pack as Gift</label>
+
+                                <input type="checkbox" id="postcard" name="gifts" value="postcard">
+                                <label for="postcard">Add Postcard</label>
+
+                                <input type="checkbox" id="discount" name="gifts" value="discount">
+                                <label for="discount">Next Order Discount 2%</label>
+
+                                <input type="checkbox" id="branded" name="gifts" value="branded">
+                                <label for="branded">Branded Pen or Pencil</label>
+                            </div>
+                        </fieldset>
+                        <input type="submit" id="submit">
+                    </form>
+                    <p id="summary"></p>
+                </div>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+        <script src="../../assets/validate.js"></script>
+    </body>
+</html>
