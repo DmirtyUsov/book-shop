@@ -131,6 +131,7 @@ main {
 }
 
 .confirm {
+    position: relative;
     width: 100%;
     background-color: var(--color-middle-blue-green);
     border: 1px solid gray;
@@ -138,14 +139,17 @@ main {
 }
 
 .error::after{
-    background-color: hsl(10, 60%, 50%);
-    color: papayawhip;
+    color: var(--color-ruber);
     font-size: 1rem;
     line-height: 1.8;
     padding-left: 1rem;
     position:relative;
     left: 10px;
     content: attr(data-errormsg);
+}
+
+.error {
+    border-color: var(--color-ruber);
 }
 
 footer {
