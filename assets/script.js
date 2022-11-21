@@ -23,11 +23,11 @@ const addBookToOrder = (idx) => {
 
     let fragment = new DocumentFragment();
     let book = document.createElement('div');
-    book.classList.add('book');
+    book.classList.add('shelf');
     book.id = `${idx}-${Date.now()};`
     let title = document.createElement('h5');
     title.classList.add('book-title')
-    title.textContent = books[idx].title;
+    title.textContent = `${books[idx].title} by ${books[idx].author} for $${books[idx].price}`;
     let removeButton = document.createElement('div');
     removeButton.classList.add('remove-button');
     removeButton.addEventListener('click', function(){removeBookFromOrder(book.id)});
